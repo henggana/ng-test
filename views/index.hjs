@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>NG TEST</title>
+	<script type="text/javascript" src="/static/js/app.js"></script>
 </head>
 <body>
 	<h1>tes</h1>

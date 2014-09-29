@@ -3,7 +3,7 @@ var type = dbm.dataType;
 
 exports.up = function(db, callback) {
 	db.createTable('alerts', {
-	    aid: { type: 'int', primaryKey: true },
+	    aid: { type: 'int', primaryKey: true, autoIncrement: true },
 	    patient: 'string',
 	    level: 'string',
 	    title: 'string',

@@ -2,25 +2,11 @@
 var application_root = __dirname,
 	express = require('express'),
 	path = require('path'),
-	mysql = require('mysql'),
-	routes = require('./routes/');
+	routes = require('./routes'),
+	assets = require('./assets');
 
 // Create server
 var app = express();
-
-// mysql connection
-var connection = mysql.createConnection({
-	host : 'localhost',
-	user : 'root',
-	password : '',
-	database : 'ng_test'
-
-});
-
-connection.connect(function(err){
-	if(err)
-		console.log(err);
-});
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(application_root, 'views'));
@@ -28,6 +14,7 @@ app.set('view engine', 'hjs');
 app.use( express.bodyParser() );
 app.use( express.methodOverride() );
 app.use( app.router );
+app.use( assets.middleware );
 app.use( express.static( path.join( application_root, 'public') ) );
 app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
 
@@ -41,6 +28,10 @@ if ('development' == app.get('env')) {
 // Routes
 app.get( '/', routes.index );
 app.get( '/alerts', routes.alerts );
+app.get( '/alert/:aid', routes.alert );
+app.post( '/alert/:aid/take', routes.alertTake );
+app.post( '/alert/:aid/close', routes.alertClose );
+// app.get( '/alert/:aid', routes.alert );
 
 //Start server
 var port = 4711;

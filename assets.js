@@ -11,43 +11,37 @@ var assets = {
     'dataType': 'javascript',
     'debug': config.assets.debug,
     'files': [
-      // 'jquery.min.js',
-      // 'underscore.min.js',
-      // 'backbone.min.js',
-      // 'logger.js',
-      // 'webrtc/adapter.js',
-      // 'views/chat_window.js',
-      // 'views/chat_display.js',
+      'jquery.min.js'
       // 'app.js'
     ]
   }, 
-  'style.css': {
-    'route': /\/static\/css\/style\.css/,
-    'path': './public/stylesheets/',
-    'dataType': 'css',
-    'debug': config.assets.debug,
-    'files': [
-      'style.less'
-    ],
-    'preManipulate': {
-      // Regexp to match user-agents including MSIE.
-      'MSIE': [
-        lessHandler,
-        assetHandler.yuiCssOptimize,
-        assetHandler.fixVendorPrefixes,
-        assetHandler.fixGradients,
-        assetHandler.stripDataUrlsPrefix
-      ],
-      // Matches all (regex start line)
-      '^': [
-        lessHandler,
-        assetHandler.yuiCssOptimize,
-        assetHandler.fixVendorPrefixes,
-        assetHandler.fixGradients,
-        assetHandler.replaceImageRefToBase64(root)
-      ]
-    }
-  }
+  // 'style.css': {
+  //   'route': /\/static\/css\/style\.css/,
+  //   'path': './public/stylesheets/',
+  //   'dataType': 'css',
+  //   'debug': config.assets.debug,
+  //   'files': [
+  //     'style.less'
+  //   ],
+  //   'preManipulate': {
+  //     // Regexp to match user-agents including MSIE.
+  //     'MSIE': [
+  //       lessHandler,
+  //       assetHandler.yuiCssOptimize,
+  //       assetHandler.fixVendorPrefixes,
+  //       assetHandler.fixGradients,
+  //       assetHandler.stripDataUrlsPrefix
+  //     ],
+  //     // Matches all (regex start line)
+  //     '^': [
+  //       lessHandler,
+  //       assetHandler.yuiCssOptimize,
+  //       assetHandler.fixVendorPrefixes,
+  //       assetHandler.fixGradients,
+  //       assetHandler.replaceImageRefToBase64(root)
+  //     ]
+  //   }
+  // }
 };
 
 var assetsManagerMiddleware = assetManager(assets);
