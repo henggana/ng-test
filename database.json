@@ -1,0 +1,23 @@
+{
+  "development": {
+    "driver": "mysql",
+    "user": "root",
+    "password": "",
+    "host": "localhost",
+    "database": "ng_test"
+  },
+  "test": {
+    "driver": "mysql",
+    "user": "root",
+    "password": "",
+    "host": "localhost",
+    "database": "ng_test"
+  },
+  "production": {
+    "driver": "mysql",
+    "user": "root",
+    "password": "",
+    "host": "localhost",
+    "database": "ng_test"
+  }
+}
