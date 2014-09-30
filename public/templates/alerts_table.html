@@ -1,0 +1,27 @@
+<header class="module--header show-for-medium-up">
+  <h2>Alarms</h2>
+</header>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>
+          Alarms
+        </th>
+        <th>
+          Notes
+        </th>
+        <th>
+          Assigned
+        </th>
+        <th>
+          Date
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr alert-item ng-repeat="alert in alerts" alert="alert"></tr>
+    </tbody>
+  </table>
+</div>

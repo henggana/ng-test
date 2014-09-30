@@ -11,7 +11,19 @@ var assets = {
     'dataType': 'javascript',
     'debug': config.assets.debug,
     'files': [
-      'jquery.min.js'
+      // 'jquery.min.js',
+      'spin.js',
+      'underscore.js',
+      'angular.js',
+      'prevent.js',
+      'moment.js',
+      'mm-foundation-tpls-0.3.1.min.js',
+      'filters/format_date.js',
+      'controllers/main_controller.js',
+      'controllers/assign_modal_controller.js',
+      'directives/alert_modal.js',
+      'directives/alerts_table.js',
+      'directives/alert_item.js'
       // 'app.js'
     ]
   }, 
