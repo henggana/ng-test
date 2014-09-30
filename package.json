@@ -7,8 +7,10 @@
         "path": "~0.4.9",
         "mysql": "*",
         "sequelize": "*",
-        "db-migrate" : "*",
         "hjs": "*",
+        "http": "*",
+        "fs": "*",
+        "lodash":"*",
         "connect-assetmanager": "*",
         "connect-assetmanager-handlers": "*",
         "connect-assetmanager-less-handler": "*"

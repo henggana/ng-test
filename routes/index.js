@@ -1,17 +1,13 @@
-var config = require('../config')();
-
-/*
- * GET home page.
- */
+var db = require('../models')
+ 
 exports.index = function(req, res){
-  res.render('index');
-};
-
-/*
- * GET alerts
- */
-exports.alerts = function(req, res){
-  // res.render('index');
-  res.send( 'Alerts API is running' );
-  // console.log();
-};
+  // db.User.findAll({
+  //   include: [ db.Task ]
+  // }).success(function(users) {
+  //   res.render('index', {
+  //     title: 'Express',
+  //     users: users
+  //   })
+  // })
+	res.render('index');
+}
