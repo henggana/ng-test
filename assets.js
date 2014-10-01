@@ -18,7 +18,8 @@ var assets = {
       'prevent.js',
       'moment.js',
       'logger.js',
-      'mm-foundation-tpls-0.3.1.min.js',
+      // 'mm-foundation-tpls-0.3.1.min.js',
+      'ui-bootstrap-tpls-0.11.2.min.js',
       'filters/format_date.js',
       'controllers/main_controller.js',
       'controllers/assign_modal_controller.js',
@@ -35,7 +36,7 @@ var assets = {
     'dataType': 'css',
     'debug': config.assets.debug,
     'files': [
-      'foundation.css',
+      // 'foundation.css',
       'main.css'
     ],
     'preManipulate': {

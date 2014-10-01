@@ -86,9 +86,10 @@ db
 		throw err[0];
 	} else {
 		db.Alarm.bulkCreate([
-			{ patient:"John"  , level:"RED"   , title:"Someone knocking my window" },
-			{ patient:"Doe"   , level:"YELLOW", title:"Please turn on the telly" },
-			{ patient:"Dvorak", level:"GREEN" , title:"I need to call my wife" }
+			{ patient:"Chiquita Rogers"  , level:"RED"   , title:"I feel burnt in my stomach"},
+			{ patient:"Rudyard Velazquez", level:"YELLOW", title:"Please turn on the Television"},
+			{ patient:"Ignatius Bailey"	 , level:"GREEN" , title:"I need to call my wife"}
 		]).success(initServer);
+		
 	}
 });

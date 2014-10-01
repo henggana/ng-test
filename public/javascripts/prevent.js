@@ -1,1 +1,1 @@
-app = angular.module('prevent',['mm.foundation']);
+app = angular.module('prevent',['ui.bootstrap']);
