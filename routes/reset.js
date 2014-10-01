@@ -11,9 +11,9 @@ exports.index = function(req, res){
 			throw err[0];
 		} else {
 			db.Alarm.bulkCreate([
-				{ patient:"John"  , level:"RED"   , title:"Someone knocking my window" },
-				{ patient:"Doe"   , level:"YELLOW", title:"Please turn on the telly" },
-				{ patient:"Dvorak", level:"GREEN" , title:"I need to call my wife" }
+				{ patient:"A Patient", level:"RED"   , title:"Someone knocking my window" },
+				{ patient:"A Patient", level:"YELLOW", title:"Please turn on the telly" },
+				{ patient:"A Patient", level:"GREEN" , title:"I need to call my wife" }
 			]).success(function(){
 				io_proxy.broadcast('reset',{});
 				return res.send( { ok : 1 } );

@@ -9,11 +9,13 @@ return {
 	},
 
 	link:function($scope,$element,attrs){
-		$scope.alarmColor = ($scope.alarm.level).toLowerCase();
+		$scope.alarm.alarmColor = ($scope.alarm.level).toLowerCase();
 
 		$scope.$watch('alarm.note_id',function(){
 			$scope.alarmHandled = $scope.alarm.note_id != null;			
 		});
+
+		$scope.alarm.patient = "A Patient";
 
 	},
 

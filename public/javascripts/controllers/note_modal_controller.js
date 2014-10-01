@@ -5,6 +5,7 @@ app.controller('NoteModalController', function ($scope, $modalInstance, alarm, n
   $scope.note = note;
   $scope.alarm = alarm;
   $scope.isEdit = edit || 0;
+  $scope.modalTitle = edit ? 'Add Note' : 'View Note';
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');

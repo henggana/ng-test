@@ -1,11 +1,17 @@
 <div class="modal-header">
   <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h4 class="modal-title" id="myModalLabel">Note</h4>
+  <h5>{{modalTitle}}</h5>
 </div>
 <form novalidate>
-  <div class="modal-body">
-      <div>Alarm: {{alarm.title}}</div>
-      <div>Patient: {{alarm.patient}}</div>
+  <div class="modal-body text-center">
+      <div class="note-modal-title">
+        <h5>
+          <i class="alert-{{alarm.alarmColor}} glyphicon glyphicon-record"></i>
+          {{alarm.patient}}
+        </h5>
+        <h4>{{alarm.title}}</h4>
+        <div class="text-muted">assigned to: {{alarm.employee || 'none'}}</div>
+      </div>
       <div ng-hide="isEdit">Note Title: {{note.title}}</div>
       <div ng-hide="isEdit">Note Content: {{note.body}}</div>
       <input type="text" class="form-control" name="title" placeholder="Note title" ng-model="note.title" ng-show="isEdit">
