@@ -1,11 +1,15 @@
 app = angular.module('prevent');
 
 app.controller('MainController',['$scope','$http', function($scope,$http){
-	$scope.showAlarmModal = function(){
-
-	}
 
 	$scope.init = function(){
+
+		$scope.levels = [
+			{key: "RED", value: "Alarm"},
+			{key: "YELLOW", value: "Call"},
+			{key: "GREEN", value: "Other"},
+		];
+
 		$http.get('/alarms').success(function(data){
 			$scope.alarms=data.alarms;
 		});
@@ -32,4 +36,13 @@ app.controller('MainController',['$scope','$http', function($scope,$http){
 			console.log(data);
 		});
 	}
+
+
+	$scope.$on('alarm:reset',function(){
+		$http.get('/alarms').success(function(data){
+			$scope.alarms=data.alarms;
+		});
+	});
+
+
 }]);

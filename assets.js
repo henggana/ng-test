@@ -35,7 +35,8 @@ var assets = {
     'dataType': 'css',
     'debug': config.assets.debug,
     'files': [
-      'foundation.css'
+      'foundation.css',
+      'main.css'
     ],
     'preManipulate': {
       // Regexp to match user-agents including MSIE.

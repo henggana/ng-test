@@ -55,6 +55,14 @@ return {
 		        }
 		      },
 		    });
+
+		    modalInstance.result.then(function () {
+		      // $scope.selected = selectedItem;
+		      $scope.reset = true;
+		      $scope.$emit('alarm:reset');
+		    }, function () {
+		      // $log.info('Modal dismissed at: ' + new Date());
+		    });
 		}
 	}
 }

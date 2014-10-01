@@ -6,11 +6,13 @@
     </div>
     <form novalidate>
       <div class="modal-body">
-          <select ng-model="alarm.level">
+          <select ng-model="alarm.level" ng-options="level.key as level.value for level in levels">
+
+            <option value="" ng-hide="alarm.level">-- Select --</option>
             <!-- <option value="husker">Select</option> -->
-            <option value="RED">Alarm</option>
-            <option value="YELLOW">Call</option>
-            <option value="GREEN">Other</option>
+            <!-- <option value="RED">Alarm</option> -->
+            <!-- <option value="YELLOW">Call</option> -->
+            <!-- <option value="GREEN">Other</option> -->
           </select>
           <textarea class="form-control" rows="3" ng-model="alarm.title"></textarea>
       </div>

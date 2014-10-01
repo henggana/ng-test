@@ -14,7 +14,8 @@ exports.create = function(request, response){
 
 exports.getAll = function(request, response){
 	db.Alarm.findAll({
-		include: [ db.Note ]
+		include: [ db.Note ],
+		order: 'note_id ASC, level ASC, created_at DESC',
 	}).success(function(alarms) {
 		return response.send( {ok:1, alarms:alarms} );
 	})

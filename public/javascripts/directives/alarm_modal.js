@@ -6,7 +6,7 @@ app.directive('alarmModal',['$http',function($http){
 		templateUrl : "templates/alarm_modal.html",
 
 		link:function($scope,$element,attrs){
-
+			console.log($scope.levels);
 		},
 
 		controller: function($scope, $element){
@@ -16,7 +16,9 @@ app.directive('alarmModal',['$http',function($http){
 					// $element.find('button.close').trigger('click');
 					$element.modal('hide');
 					$element.find('form')[0].reset();
-					$scope.alarms.push(data.alarm);
+					$http.get('/alarms').success(function(data){
+						$scope.alarms = data.alarms;
+					});
 				});
 			}		
 		}
