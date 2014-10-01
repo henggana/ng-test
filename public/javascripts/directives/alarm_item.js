@@ -45,7 +45,6 @@ return {
 		          return $scope.alarm;
 		        },
 		        note: function () {
-		        	console.log($scope.alarm.Note);
 		        	if ($scope.alarm.Note != null)
 						return $scope.alarm.Note;		   
 					else
