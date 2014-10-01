@@ -11,6 +11,7 @@
         "http": "*",
         "fs": "*",
         "lodash":"*",
+        "socket.io": "*",
         "connect-assetmanager": "*",
         "connect-assetmanager-handlers": "*",
         "connect-assetmanager-less-handler": "*"

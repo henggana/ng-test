@@ -7,11 +7,14 @@
   <meta name="author" content="">
 
   <title>
-
       Alerts test &middot; Prevent
-
   </title>
 
+  <script type="text/javascript">
+    window.NODE_ENV = '{{NODE_ENV}}';
+  </script>
+
+  <link href="static/css/style.css" rel="stylesheet">
   <link href="http://dignio.github.io/prevent2-proto/css/styles.css" rel="stylesheet">
 
   <script src="http://dignio.github.io/prevent2-proto/bower_components/modernizr/modernizr.js"></script>
@@ -38,7 +41,7 @@
             <ul class="right">
               <li class="divider"></li>
               <li class="">
-                <a href="#" data-toggle="modal" data-target="#alertModal">New note</a>
+                <a href="#" data-toggle="modal" data-target="#alarmModal">New note</a>
               </li>
               </ul>
             </li>
@@ -51,14 +54,14 @@
  
   <div class="row">
     <div class="large-7 columns">
-      <section alerts-table alerts="alerts" class="module module-bordered">
+      <section alarms-table alarms="alarms" class="module module-bordered">
         
       </section>
     </div>
   </div>
 
 
-  <div alert-modal class="modal fade" data-reveal-id="alertModal" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div alarm-modal class="modal fade" data-reveal-id="alarmModal" id="alarmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   </div><!-- /.modal -->
 
       <!-- Bootstrap core JavaScript
@@ -76,6 +79,8 @@
 <script src="http://dignio.github.io/prevent2-proto/bower_components/foundation/js/foundation/foundation.offcanvas.js"></script>
 <script src="http://dignio.github.io/prevent2-proto/bower_components/foundation/js/foundation/foundation.joyride.js"></script>
 <script src="http://dignio.github.io/prevent2-proto/bower_components/foundation/js/foundation/foundation.tab.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
 
 <script type="text/javascript" src="static/js/app.js"></script>
 

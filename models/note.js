@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     }, {
     classMethods: {
       associate: function(models) {
-        Note.hasOne(models.Alert);
+        Note.hasOne(models.Alarm);
       }
     },
     timestamps: true,

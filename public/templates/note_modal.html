@@ -1,13 +1,15 @@
 <div class="modal-header">
   <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h4 class="modal-title" id="myModalLabel">Assign employee to alarm</h4>
+  <h4 class="modal-title" id="myModalLabel">Create note</h4>
 </div>
 <form novalidate>
   <div class="modal-body">
       <div>Alarm: {{alarm.title}}</div>
       <div>Patient: {{alarm.patient}}</div>
-      <label for="employee">Assign to: </label>
-      <input type="text" class="form-control" ng-model="alarm.employee" name="employee" placeholder="Employee name"></textarea>
+      <div ng-hide="isEdit">Note Title: {{note.title}}</div>
+      <div ng-hide="isEdit">Note Content: {{note.body}}</div>
+      <input type="text" class="form-control" name="title" placeholder="Note title" ng-model="note.title" ng-show="isEdit">
+      <textarea class="form-control" ng-model="note.body" name="title" placeholder="Note body" ng-show="isEdit"></textarea>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
@@ -15,3 +17,5 @@
     <!-- <button type="button" class="btn btn-primary">Save for all</button> -->
   </div>
 </form>
+
+

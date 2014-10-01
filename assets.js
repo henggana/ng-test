@@ -17,43 +17,45 @@ var assets = {
       'angular.js',
       'prevent.js',
       'moment.js',
+      'logger.js',
       'mm-foundation-tpls-0.3.1.min.js',
       'filters/format_date.js',
       'controllers/main_controller.js',
       'controllers/assign_modal_controller.js',
-      'directives/alert_modal.js',
-      'directives/alerts_table.js',
-      'directives/alert_item.js'
+      'controllers/note_modal_controller.js',
+      'directives/alarm_modal.js',
+      'directives/alarms_table.js',
+      'directives/alarm_item.js'
       // 'app.js'
     ]
   }, 
-  // 'style.css': {
-  //   'route': /\/static\/css\/style\.css/,
-  //   'path': './public/stylesheets/',
-  //   'dataType': 'css',
-  //   'debug': config.assets.debug,
-  //   'files': [
-  //     'style.less'
-  //   ],
-  //   'preManipulate': {
-  //     // Regexp to match user-agents including MSIE.
-  //     'MSIE': [
-  //       lessHandler,
-  //       assetHandler.yuiCssOptimize,
-  //       assetHandler.fixVendorPrefixes,
-  //       assetHandler.fixGradients,
-  //       assetHandler.stripDataUrlsPrefix
-  //     ],
-  //     // Matches all (regex start line)
-  //     '^': [
-  //       lessHandler,
-  //       assetHandler.yuiCssOptimize,
-  //       assetHandler.fixVendorPrefixes,
-  //       assetHandler.fixGradients,
-  //       assetHandler.replaceImageRefToBase64(root)
-  //     ]
-  //   }
-  // }
+  'style.css': {
+    'route': /\/static\/css\/style\.css/,
+    'path': './public/stylesheets/',
+    'dataType': 'css',
+    'debug': config.assets.debug,
+    'files': [
+      'foundation.css'
+    ],
+    'preManipulate': {
+      // Regexp to match user-agents including MSIE.
+      'MSIE': [
+        lessHandler,
+        assetHandler.yuiCssOptimize,
+        assetHandler.fixVendorPrefixes,
+        assetHandler.fixGradients,
+        assetHandler.stripDataUrlsPrefix
+      ],
+      // Matches all (regex start line)
+      '^': [
+        lessHandler,
+        assetHandler.yuiCssOptimize,
+        assetHandler.fixVendorPrefixes,
+        assetHandler.fixGradients,
+        assetHandler.replaceImageRefToBase64(root)
+      ]
+    }
+  }
 };
 
 var assetsManagerMiddleware = assetManager(assets);

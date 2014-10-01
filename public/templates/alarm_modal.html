@@ -6,13 +6,13 @@
     </div>
     <form novalidate>
       <div class="modal-body">
-          <select ng-model="alert.level">
-            <option value="husker">Select</option>
+          <select ng-model="alarm.level">
+            <!-- <option value="husker">Select</option> -->
             <option value="RED">Alarm</option>
             <option value="YELLOW">Call</option>
             <option value="GREEN">Other</option>
           </select>
-          <textarea class="form-control" rows="3" ng-model="alert.title"></textarea>
+          <textarea class="form-control" rows="3" ng-model="alarm.title"></textarea>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" ng-click="save()">Save</button>

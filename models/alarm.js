@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Alert = sequelize.define('Alert', {
+  var Alarm = sequelize.define('Alarm', {
       aid      : { type : DataTypes.INTEGER, allowNull: false ,primaryKey : true, autoIncrement : true },
       patient  : DataTypes.STRING,
       level    : DataTypes.ENUM("RED","YELLOW","GREEN"),
@@ -9,13 +9,13 @@ module.exports = function(sequelize, DataTypes) {
     }, {
     classMethods: {
       associate: function(models) {
-        Alert.belongsTo(models.Note);
+        Alarm.belongsTo(models.Note);
       }
     },
     timestamps: true,
     underscored: true,
-    tableName : 'alerts'
+    tableName : 'alarms'
   })
  
-  return Alert
+  return Alarm
 }

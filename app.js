@@ -1,14 +1,12 @@
 var express = require('express')
-  , routes  = require('./routes')
-  , reset   = require('./routes/reset')
-  , alert   = require('./routes/alert')
-  , note    = require('./routes/note')
   , http    = require('http')
   , path    = require('path')
   , db      = require('./models')
-  , assets  = require('./assets');
+  , assets  = require('./assets')
+  , routes  = require('./routes');
 
-var app = express();
+var app      = express();
+var io_proxy = require('./io_proxy');
 
 app.set( 'port', process.env.PORT || 3000);
 app.set( 'views', path.join(__dirname, 'views'));
@@ -28,11 +26,57 @@ if ('development' == app.get('env')) {
 };
 
 app.get( '/', routes.index );
-app.get( '/reset', reset.index );
-app.get( '/alerts', alert.getAll );
-app.get( '/alert/:aid', alert.getById );
-app.post( '/alert/:aid/take', alert.take );
-app.post( '/alert/:aid/close', alert.close );
+
+var initServer = function () {
+	var server = http.createServer(app);
+
+	var io = require('socket.io').listen(server);
+	io_proxy.io = io;
+
+	if ('development' == app.get('env')) {
+
+		// Socket IO configuration
+		io.set('transports', [
+		    'websocket'
+		    , 'flashsocket'
+		    , 'htmlfile'
+		    , 'xhr-polling'
+		    , 'jsonp-polling',
+		    , 'polling'
+		]);
+	}
+
+	io.set('log level', 1); // reduce logging
+
+	var reset   = require('./routes/reset')
+	  , alarm   = require('./routes/alarm')
+	  , note    = require('./routes/note');
+
+	app.get( '/reset', reset.index );
+	app.get( '/alarms', alarm.getAll );
+	app.post( '/alarm', alarm.create );
+	app.get( '/alarm/:aid', alarm.getById );
+	app.post( '/alarm/:aid/take', alarm.take );
+	app.post( '/alarm/:aid/close', alarm.close );
+
+	io.sockets.on('connection', function (socket) {
+		socket.emit('connected');
+		  // socket.on('reset', function () {
+		  // 	// TODO: DB handlers
+		  // 	socket.broadcast.emit('reset');
+		  // });
+		  // socket.on('alert-take', function (alarmId, employeeId) {
+		  // 	socket.broadcast.emit('alert-take', alarmId, employeeId);
+		  // });
+		  // socket.on('alert-close', function (alarmId) {
+		  // 	socket.broadcast.emit('alert-close', alarmId);
+		  // });
+	});
+
+	server.listen(app.get('port'), function(server){
+		console.log('Express server listening on port %d in %s mode', app.get('port'), app.settings.env)
+	});
+};
 
 db
 .sequelize
@@ -41,14 +85,10 @@ db
 	if(err){
 		throw err[0];
 	} else {
-		db.Alert.bulkCreate([
+		db.Alarm.bulkCreate([
 			{ patient:"John"  , level:"RED"   , title:"Someone knocking my window" },
 			{ patient:"Doe"   , level:"YELLOW", title:"Please turn on the telly" },
 			{ patient:"Dvorak", level:"GREEN" , title:"I need to call my wife" }
-		]).success(function(){
-			http.createServer(app).listen(app.get('port'), function(){
-				console.log('Express server listening on port %d in %s mode', app.get('port'), app.settings.env)
-			});
-		});
+		]).success(initServer);
 	}
 });

@@ -1,12 +1,12 @@
 app = angular.module('prevent');
 
-app.directive('alertsTable',[function(){
+app.directive('alarmsTable',[function(){
 return {
 	restrict: 'A',
-	templateUrl : "templates/alerts_table.html",
+	templateUrl : "templates/alarms_table.html",
 
 	scope: {
-		alerts: "=",
+		alarms: "=",
 	},
 	link:function($scope,$element,attrs){
 	},

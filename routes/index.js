@@ -1,4 +1,6 @@
 var db = require('../models')
+var config = require('../config')();
+
  
 exports.index = function(req, res){
   // db.User.findAll({
@@ -9,5 +11,5 @@ exports.index = function(req, res){
   //     users: users
   //   })
   // })
-	res.render('index');
+	res.render('index', {NODE_ENV: config.mode});
 }
