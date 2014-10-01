@@ -25,7 +25,10 @@ exports.getById = function(request, response){
 		where   : { aid : request.params.aid },
 		include : [ db.Note ]
 	}).success(function(alarm) {
-		return response.send( {ok:1, alarm:alarm} );
+		if (alarm)
+			return response.send( {ok:1, alarm:alarm} );
+		else 
+			return response.send( {ok:0, error:"not found"} );
 	}).error(function(errors){
 		return response.send( {ok:0, error:"not found"} );
 	});
