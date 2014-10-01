@@ -10,4 +10,4 @@ IoProxy.prototype = {
 	}
 }
 
-module.exports = new IoProxy();;
+module.exports = new IoProxy();
